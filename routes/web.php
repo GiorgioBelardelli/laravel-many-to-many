@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProjectController;
 
-Route::get('/', function () {
-
-    return view('pages.index');
-});
+Route::get('/', [ProjectController :: class, 'index'])
+    -> name('pages.index');
