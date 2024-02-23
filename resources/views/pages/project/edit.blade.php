@@ -4,11 +4,11 @@
 @endsection
 @section('content')
     <h1>MODIFICA PROGETTO</h1>
-    <form action="{{ route('project.store') }}"
+    <form action="{{ route('project.update', $project -> id) }}"
     method="POST">
 
     @csrf 
-    @method('POST')
+    @method('PUT')
 
         <label for="title">Title</label>
         <input type="text" name="title" id="title" value="{{ $project -> title }}">
@@ -28,7 +28,6 @@
             </option>
             @endforeach
         </select>
-        <br>
         <h5>Technology:</h5>
         <div class="check-container">
             @foreach($technologies as $technology)
@@ -36,12 +35,18 @@
             name="technology_id[]"
             id="{{ 'technology_id_' . $technology -> id }}"
             value="{{ $technology -> id }}"
-            class="d-inline">
+            class="d-inline"
+            @foreach ($project -> technologies as $project_technology )
+                @if ( $project_technology -> id == $technology -> id )
+                    checked
+                @endif
+            @endforeach
+            >
             <label for="{{ 'technology_id_' . $technology -> id }}">
                 {{ $technology -> technology_name }}
             </label>
             @endforeach
         </div>
-        <input type="submit" value="CREA">
+        <input type="submit" value="MODIFICA">
     </form>
 @endsection

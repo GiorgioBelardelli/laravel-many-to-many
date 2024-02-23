@@ -21,6 +21,7 @@
             <h5>Technology:</h5>
             <strong> {{ $technology -> technology_name}} </strong>
             @endforeach
+            <br>
             <a href="{{ route('project.edit', $project -> id )}}">
                 EDIT
             </a>

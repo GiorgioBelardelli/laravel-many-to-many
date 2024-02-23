@@ -27,16 +27,19 @@
         <br>
         <span>TECHNOLOGIES:</span>
         <br>
-        @foreach($technologies as $technology)
+        <div class="check-container">
+            @foreach($technologies as $technology)
             <input type="checkbox"
             name="technology_id[]"
             id="{{ 'technology_id_' . $technology -> id }}"
-            value="{{ $technology -> id }}">
+            value="{{ $technology -> id }}"
+            class="d-inline">
             <label for="{{ 'technology_id_' . $technology -> id }}">
                 {{ $technology -> technology_name }}
             </label>
             <br>
-        @endforeach
+            @endforeach
+        </div>
         <input type="submit" value="MODIFICA">
     </form>
 @endsection
