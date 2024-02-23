@@ -19,24 +19,29 @@
         <label for="type_id">Seleziona il tipo:</label>
         <select name="type_id" id="type_id">
             @foreach ($types as $type)
-            <option value="{{ $type -> id }}">
+            <option value="{{ $type -> id }}"                
+                @if ($project -> type -> id == $type -> id)
+                selected
+                @endif
+            >
                 {{ $type -> type_name}}
             </option>
             @endforeach
         </select>
         <br>
-        <span>TECHNOLOGIES:</span>
-        <br>
-        @foreach($technologies as $technology)
+        <h5>Technology:</h5>
+        <div class="check-container">
+            @foreach($technologies as $technology)
             <input type="checkbox"
             name="technology_id[]"
             id="{{ 'technology_id_' . $technology -> id }}"
-            value="{{ $technology -> id }}">
+            value="{{ $technology -> id }}"
+            class="d-inline">
             <label for="{{ 'technology_id_' . $technology -> id }}">
                 {{ $technology -> technology_name }}
             </label>
-            <br>
-        @endforeach
+            @endforeach
+        </div>
         <input type="submit" value="CREA">
     </form>
 @endsection

@@ -1,3 +1,41 @@
 @import "~bootstrap/scss/bootstrap";
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+.container {
+    width: 1200px;
+    margin: 10rem auto;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    input {
+        border: 0;
+        border-bottom: 1px solid gray;
+        text-align: center;
+        width: 20rem;
+        display: block;
+    }
+    label {
+        font-weight: bold;
+    }
+    select {
+        border: 0;
+        border-bottom: 1px solid gray;
+    }
+    .check-container {
+        display: flex;
+        margin: 2rem 0;
+        .d-inline {
+            width: auto;
+            margin: 0 0.5rem;
+        }
+    }
+}

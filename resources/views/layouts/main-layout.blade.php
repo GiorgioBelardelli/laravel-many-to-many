@@ -11,9 +11,12 @@
 </head>
 <body>
     <div class="text-center">
-        @include('components.header')
-        @yield('content')
-        @include('components.footer')
+        <div class="container">
+
+            @include('components.header')
+            @yield('content')
+            @include('components.footer')
+        </div>
     </div>
 </body>
 </html>
