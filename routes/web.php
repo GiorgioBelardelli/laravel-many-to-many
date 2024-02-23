@@ -4,8 +4,17 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TypeController;
 
-Route::get('/project', [ProjectController :: class, 'index'])
+Route::get('/projects', [ProjectController :: class, 'index'])
     -> name('project.index');
 
-Route::get('/type', [TypeController :: class, 'index'])
+Route::get('/types', [TypeController :: class, 'index'])
     -> name('pages.index');
+
+Route::get('/projects/create', [ProjectController :: class, 'create'])
+    -> name('project.create');
+
+Route:: post('/projects/create', [ProjectController :: class, 'store'])
+    -> name('project.store');
+
+Route:: get('/projects/{id}/edit', [ProjectController :: class, 'edit'])
+    -> name('project.edit');

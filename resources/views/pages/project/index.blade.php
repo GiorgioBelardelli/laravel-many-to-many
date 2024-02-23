@@ -4,6 +4,9 @@
 @endsection
 @section('content')
     <h1>PROJECTS</h1>
+    <a href=" {{ route('project.create') }}">
+        CREA NUOVO PROGETTO
+    </a>
     <ul>
         @foreach($projects as $project)
         <li>
@@ -14,6 +17,14 @@
             <p>
                 {{ $project -> description }}
             </p>
+            @foreach ($project -> technologies as $technology )
+            <span>Technology:</span>
+            <strong> {{ $technology -> technology_name}} </strong>
+            @endforeach
+            <br>
+            <a href="{{ route('project.edit', $project -> id )}}">
+                EDIT
+            </a>
         </li>
         @endforeach
     </ul>
