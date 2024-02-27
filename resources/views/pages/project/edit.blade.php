@@ -4,7 +4,9 @@
 @endsection
 @section('content')
     <h1>MODIFICA PROGETTO</h1>
-    <form action="{{ route('project.update', $project -> id) }}"
+    <form 
+    action="{{ route('project.update', $project -> id) }}"
+    enctype="multipart/form-data"
     method="POST">
 
     @csrf 
@@ -47,6 +49,10 @@
             </label>
             @endforeach
         </div>
+        <img src="{{ asset('storage/' . $project -> image) }}" alt="immagine del progetto" width="300px">
+        <label for="image">Immagine: </label>
+        <input type="file" name="image" id="image">
+        <br>
         <input type="submit" value="MODIFICA">
     </form>
 @endsection
